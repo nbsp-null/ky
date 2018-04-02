@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery WeUI</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+  </head>
+
+  <body ontouchstart style="background-color:#F8F8F8">
+   <div class="weui-tabbar" style="position:fixed">
+    <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+          <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_msg.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">学员</p>
+        </a>
+
+        <a href="#tab3" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_article.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">课程</p>
+        </a>
+        <a href="#tab4" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">我</p>
+        </a>
+      </div>
+   
+
+   <div class="weui-search-bar" id="searchBar" style="background-color:#F8F8F8">
+      <form class="weui-search-bar__form" action="#" >
+        <div class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+          <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+        </div>
+        <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+          <i class="weui-icon-search"></i>
+          <span>搜索</span>
+        </label>
+      </form>
+      <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+    <div class="weui-form-preview" style="margin-bottom:2%">
+	<div  style="background-color:white;color:gray;padding:4%;text-align:center;"> <a style="margin-left:4%" href="form - 副本 - 副本.html">添加课程</a></div>
+	</div>
+	          <div class="weui-cell weui-cell_swiped add_cou" style="display:none">
+            <div class="weui-cell__bd">
+ <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程名:</label>
+          <em class="weui-form-preview__value">物理补习</em>
+        </div>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程时间:</label>
+          <span class="weui-form-preview__value">1年<span style="margin-left:4%">23节</span></span>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程费用:</label>
+          <span class="weui-form-preview__value">880元</span>
+        </div>
+		<div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">报名数:</label>
+          <span class="weui-form-preview__value" >10人</span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">备注:</label>
+          <span class="weui-form-preview__label" style="word-wrap:normal;word-break:break-all;">很长很长1111111111111111111111111111111111111111111111</span>
+        </div>
+      </div>
+
+    </div>
+            </div>
+            <div class="weui-cell__ft">
+              <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" style='display:inline-block;display:-webkit-flex; display:flex;justify-content:center;align-items:center;vertical-align:middle;' href="javascript:"><div >删除</div></a>
+             
+            </div>
+          </div>
+    
+
+    <br>
+       <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">姓名:</label>
+          <em class="weui-form-preview__value">大大大</em>
+        </div>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">入学时间:</label>
+          <span class="weui-form-preview__value">2014-2-2</span>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">报名详情:</label>
+          <span class="weui-form-preview__value">化学物理|套餐2</span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">缴费详情:</label>
+          <span class="weui-form-preview__value"><span style="color:red">880|未缴清|30</span></span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">备注:</label>
+          <span class="weui-form-preview__value"></span>
+        </div>
+      </div>
+   
+    </div>
+
+    <br>
+	    <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">姓名:</label>
+          <em class="weui-form-preview__value">王三</em>
+        </div>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">入学时间:</label>
+          <span class="weui-form-preview__value">2014-2-2</span>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">报名详情:</label>
+          <span class="weui-form-preview__value">化学物理|套餐2</span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">缴费详情:</label>
+          <span class="weui-form-preview__value"><span style="color:blue">880|缴清</span></span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">备注:</label>
+          <span class="weui-form-preview__value">很</span>
+        </div>
+      </div>
+          <div class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick='alert(3)'>辅助操作</a>
+        <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</button>
+      </div>
+    </div>
+
+    <br>
+	 <br>
+	  <br>
+	   <br>
+	    <br>
+    <script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery WeUI</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="">
+<style>
+.sele_c{
+width:80%;margin:1rem 10%;min-height:50%;max-height:9rem;display:flex;flex-direction:column;text-align:center;font-size:0.8rem;
+}
+.sele_p{
+opacity:0.5;
+transition:300ms;
+-webkit-transition:300ms;
+}
+.sele_cp
+{
+opacity:1;
+font-size:0.9rem;
+margin:0.1 rem 0;
+
+}
+</style>
+<link rel="stylesheet" href="css/weui.min.css">
+<link rel="stylesheet" href="css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+  </head>
+  <body ontouchstart style="background-color:#efeff4">
+  
+      <div class="weui-tabbar" style="position:fixed">
+    <a href="#" id="tab1" onclick="tabbar(1,this)" class="weui-tabbar__item weui-bar__item--on">
+          <span id="c_t1" class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">0</span>
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_msg.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">学员</p>
+        </a>
+
+        <a href="#" id="tab2" onclick="tabbar(2,this)"  class="weui-tabbar__item">
+		 <span id="c_t2" class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">0</span>
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_article.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">课程</p>
+        </a>
+        <a href="#" id="tab3" onclick="tabbar(3,this)"  class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">我</p>
+        </a>
+      </div>
+
+	  <div id="add_co" style="display:none;background-color:white; position:fixed;overflow-y:scroll;overflow-x:hidden;bottom:0;z-index:999;top:0;left:0;width:100%">
+    <header class='demos-header'>
+      <h1 class="demos-title">课程信息</h1>
+    </header>
+	 <div class="weui-cells__title">课程名</div>
+	 <div class="weui-cell">
+
+        <div class="weui-cell__bd">
+          <input class="weui-input" style="padding-left:10%" type="text" placeholder="请输入课程名">
+        </div>
+      </div>
+    
+ <div class="weui-cells__title">信息</div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%">
+        <div class="weui-cell__hd">
+           <div class="weui-cells__title">价格</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" placeholder="请输入价格">
+        </div>
+		
+      </div>
+	  
+	  <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">时间</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="请输入持续时间(年)">
+        </div>
+		
+      </div>
+	  
+	      <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">课数</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="请输入课数">
+        </div>
+		
+      </div>
+ 
+    </div>
+   
+	
+	    <div class="weui-cells__title">备注</div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="输入备注" rows="3"></textarea>
+          <div class="weui-textarea-counter">200</div>
+        </div>
+      </div>
+    </div>
+	<a class="weui-btn weui-btn_primary" style="max-width:95%" href="javascript:" id="showTooltips_co">确定</a>
+	<a class="weui-btn weui-btn_warn" style="max-width:95%;margin-bottom:5%" id="exit_co">取消</a>
+	</div>
+
+
+<div id="statis" class="shadow">
+  <div class="weui-grids" style="background-color:white">
+      <a onclick="tabbar(1)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_msg.png" alt="">
+        </div>
+		  <p class="weui-grid__label">
+          学员总数:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="tabbar(2)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_article.png" alt="">
+        </div>
+		 <p class="weui-grid__label">
+          课程总数:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="Ctl.search(search_url,{'search':'all money'});tabbar(1)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_button.png" alt="">
+        </div>
+	<p class="weui-grid__label">
+          学费总金额:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="Ctl.search(search_url,{'search':'all arre'});tabbar(1)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_noti.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+          欠费总人数:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="Ctl.search(search_url,{'search':'all arre_money'});tabbar(1)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_noti.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+          欠费总金额:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="Ctl.search(search_url,{'search':'all remarks'});tabbar(1)" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_dialog.png" alt="">
+        </div>
+      <p class="weui-grid__label">
+          备注人数:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a onclick="Ctl.search(search_url,{'search':'all arre_remk'});tabbar(1)"  class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_dialog.png" alt="">
+        </div>
+       <p class="weui-grid__label">
+          欠费备注人数:
+        </p>
+        <p class="weui-grid__label static">
+          0
+        </p>
+      </a>
+      <a  class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+          <img src="images/icon_nav_cell.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+          联系作者:
+        </p>
+        <p class="weui-grid__label">
+          q:756942070
+        </p>
+      </a>
+
+    </div>
+	</div>
+
+
+<div id="add_s" style="display:none;background-color:white; position:fixed;overflow-y:scroll;overflow-x:hidden;bottom:0;z-index:999;top:0;left:0;width:100%" >
+
+	
+    <header class='demos-header'>
+      <h1 class="demos-title">学员信息</h1>
+    </header>
+	 <div class="weui-cells__title">姓名</div>
+	 <div class="weui-cell">
+
+        <div class="weui-cell__bd">
+          <input class="weui-input" style="padding-left:10%" type="text" pattern="*" placeholder="请输入姓名">
+        </div>
+      </div>
+    <div class="weui-cells__title">性别</div>
+    <div class="weui-cells weui-cells_radio">
+      <label class="weui-cell weui-check__label" for="x11">
+        <div class="weui-cell__bd" style="padding-left:1%">
+          <p>男生</p>
+        </div>
+        <div class="weui-cell__ft">
+          <input type="radio" class="weui-check" name="radio1" id="x11">
+          <span class="weui-icon-checked"></span>
+        </div>
+      </label>
+      <label class="weui-cell weui-check__label" for="x12">
+
+        <div class="weui-cell__bd" style="padding-left:1%">
+          <p>女生</p>
+        </div>
+        <div class="weui-cell__ft">
+          <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+          <span class="weui-icon-checked"></span>
+        </div>
+      </label>
+    </div>
+   
+ <div class="weui-cells__title">信息</div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%">
+        <div class="weui-cell__hd">
+           <div class="weui-cells__title">手机号</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="请输入手机号">
+        </div>
+		
+      </div>
+	  
+	  <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">微信号</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="请输入微信号">
+        </div>
+		
+      </div>
+	  
+	      <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">QQ号</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="tel" placeholder="请输入QQ号">
+        </div>
+      </div>
+	    	 <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">证件号</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" placeholder="请输证件号">
+        </div>
+      </div>
+	  	 <div class="weui-cell weui-cell_vcode" style="padding-bottom:2.5%;padding-top:2.5%">
+        <div class="weui-cell__hd">
+          <div class="weui-cells__title">就读学校</div>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="请输入校名">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cells__title">出生日期</div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="date" value="" placeholder='请点击'>
+        </div>
+      </div>
+
+    </div>
+   
+
+
+
+    <div class="weui-cells__title">课程名</div>
+	 <div class="weui-cells weui-cells_form">
+
+          <input class="weui-input" id="in" readonly type="text" style="padding-left:20%;padding-top:2%;padding-bottom:2%;" placeholder="请点击" >
+        </div>
+     
+	    <div class="weui-cells__title">备注</div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="输入备注" rows="3"></textarea>
+          <div class="weui-textarea-counter">200</div>
+        </div>
+      </div>
+    </div>
+	 <div class="weui-cells__title">账单</div>
+	  <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd" style="display:flex;">
+         <div style="flex:2">总计:</div> <div style="flex:8;color:red;text-align:right;font-weight:bold" zja="200" id="zj" > 200</div>
+        </div>
+      </div>
+	   <div class="weui-cell">
+        <div class="weui-cell__bd" style="display:flex;">
+         <div style="flex:2">打折率:</div> <div style="flex:8;color:red;text-align:right;font-weight:bold;"> <input type="text" class="weui-input" style="width:30% " id='zs' placeholder="输入折数" ></div>
+        </div>
+      </div>
+	   <div class="weui-cell">
+        <div class="weui-cell__bd" style="display:flex;">
+         <div style="flex:2">付款:</div> <div style="flex:8;color:red;text-align:right;font-weight:bold;"> <input type="text" class="weui-input" style="width:30% " id='jn' placeholder="输入金额" ></div>
+        </div>
+      </div>
+	   <div class="weui-cell">
+        <div class="weui-cell__bd" style="display:flex;">
+         <div style="flex:2">结算:</div> <div style="flex:8;color:red;text-align:right;font-weight:bold;margin-bottom:5%" id="js"> 100</div>
+        </div>
+      </div>
+    </div>
+	<a class="weui-btn weui-btn_primary" style="max-width:95%" href="javascript:" id="showTooltips">确定</a>
+	<a class="weui-btn weui-btn_warn" href="javascript:console.log(this)" style="max-width:95%;margin-bottom:5%" id="exit">取消</a>
+
+
+   
+</div>
+
+
+   <div class="weui-search-bar show" id="searchBar" >
+      <form class="weui-search-bar__form"   id="searchInput"  style="margin: 2% 0;">
+        <div class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="search" class="weui-search-bar__input"  placeholder="搜索" required="">
+        </div>
+		</form>
+		<div class="shadow" id= "searf_d" style="width:100%;max-height:30%;overflow-y:scroll;position:fixed;opacity:0.9;background-color:#efeff4;z-index:9999">
+			
+		</div>
+		<div class="shadow" id= "searf_cr" style="width:100%;height:100%;position:fixed;opacity:0;z-index:99;overflow:hidden">
+    </div>
+	</div>
+	
+	<div class="weui-form-preview show" id="addbar" style="margin-bottom:2%">
+	<div id="add" style="background-color:white;color:gray;padding:4%;text-align:center;"> <span style="margin-left:4%" >添加学员</span></div>
+	</div>
+	
+	<div class="weui-cell weui-cell_swiped show_cou" style="display:none">
+            <div class="weui-cell__bd">
+
+ <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程名:</label>
+          <em class="weui-form-preview__value">物理补习</em>
+        </div>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程时间:</label>
+          <span class="weui-form-preview__value"><span>1年</span><span style="margin-left:4%">23节</span></span>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">课程费用:</label>
+          <span class="weui-form-preview__value">880元</span>
+        </div>
+		<div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">报名数:</label>
+          <span class="weui-form-preview__value" >10人</span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">备注:</label>
+          <span class="weui-form-preview__label" style="word-wrap:normal;word-break:break-all;">很长很长1111111111111111111111111111111111111111111111</span>
+        </div>
+      </div>
+
+    </div>
+            </div>
+            <div class="weui-cell__ft">
+              <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" style='display:inline-block;display:-webkit-flex; display:flex;justify-content:center;align-items:center;vertical-align:middle;' href="javascript:"><div >删除</div></a>
+             
+            </div>
+          </div>
+	
+
+ <div class="weui-cell weui-cell_swiped show_student"  style="display:none">
+            <div class="weui-cell__bd">
+ <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">姓名:</label>
+          <em class="weui-form-preview__value"><span>wangi</span>  <span class='male'></span></em>
+		 
+        </div>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">入学时间:</label>
+          <span class="weui-form-preview__value"><span class="">2014-2-2<span></span>
+        </div>
+				<div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">到期时间:</label>
+          <div class="weui-form-preview__value"  style="display:flex">2015-2-2</div>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">学员信息:</label>
+          <span class="weui-form-preview__value"><span class="">1990-2-2</span><span style="margin-left:2%">北华大学</span></span>
+        </div>
+		       <div class="weui-form-preview__item">
+		 <span>
+          <label class="weui-form-preview__label">联系方式:</label>
+          <span class="weui-form-preview__value" style="display:flex"><span class="telsty"></span><a href="tel:1312345234">1312345234</a>
+		  </span>
+		  </span>
+		  <span>
+		  <label class="weui-form-preview__label">&nbsp&nbsp&nbsp&nbsp </label>
+		 <span class="weui-form-preview__value" style=""><span class="wxstyle"></span><span href="weixin:1312345234">1312345234</span>
+		  </span>
+		  </span>
+		   <span>
+		  <label class="weui-form-preview__label">   &nbsp&nbsp&nbsp&nbsp </label>
+		   <span class="weui-form-preview__value" style=""><span class="qqstyle"></span><span href="qq:1312345234">1312321321</span>
+		  </span>
+		   </span>
+        </div>
+		<div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">证件信息:</label>
+          <span class="weui-form-preview__value" style="display: flex;" ><span class="cardsyt"></span><span>430524199611120730</span></span>
+        </div>
+		 <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">报名详情:</label>
+          <span class="weui-form-preview__value"><span class="">化学物理|套餐2</span></span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">缴费详情:</label>
+          <div class="weui-form-preview__value"  style="display:flex"><span >880</span><span class="qfsty"></span><span style="color:red">660</span></div>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">备注:</label>
+          <span class=" weui-form-preview__label" style="word-wrap:normal;word-break:break-all;">很长很长1111111111111111111111111111111111111111111111</span>
+        </div>
+      </div>
+
+    </div>
+            </div>
+            <div class="weui-cell__ft">
+              <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" style='display:inline-block;display:-webkit-flex; display:flex;justify-content:center;align-items:center;vertical-align:middle;' href="javascript:"><div >删除</div></a>
+            </div>
+	</div>
+		  
+    
+	<div class="" id="student"></div>
+	<div class="" id="course"></div>
+	<div id="sele" style="display:none;transition:300ms;-webkit-transition:300ms;min-height:40%;max-height:50%;background-color:#efeff4;position:fixed;bottom:0;z-index:1000;left:0;width:100%;">
+	
+	<div class="toolbar" style="display:flex;align-items:center;width:100%;padding:1.5% 0;padding:1.5% 0;">   
+	<span style="flex:8;text-align:left;margin-left:40%;">查找课程</span> <span style="flex:2;text-align:right;margin-right:2%;color:green;"  id="selc_en">确定</span>
+	</div>
+	<input style="width:80%;height:1.5rem;margin:0.5rem 10%;border:1px solid black;font-size:1rem" id="sele_i" type="text" value="">
+	<div style="overflow:hidden;">
+	<div id="sele_c" class="sele_c" style="">
+	</div>
+	</div> </div> 
+
+ 
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/rebuild.js"></script>
+
+  </body>
+</html>

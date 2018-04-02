@@ -1,0 +1,184 @@
+body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.searf{
+color:black;
+text-align:center;
+font-family:'幼圆';
+
+}
+.searf:hover{
+background-color:white;
+}
+.searf:after{
+content:" ";
+display:block;
+width:100%;
+border:1px solid white;
+}
+.show_student  {
+margin-bottom:10px;
+}
+.show_cou{
+margin-bottom:10px;
+}
+.male{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/male.png');
+height:20px;
+background-size: 100% 100%;
+}
+.female{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/female.png');
+height:20px;
+background-size: 100% 100%;
+}
+.yearstyle{
+    display: inline-block;
+    background-color: #82c3c2;
+    color: beige;
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+	margin-bottom:1%;
+}
+.colsyt{
+    display: inline-block;
+    background-color: #d2743f;
+    color: beige;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+	margin-bottom:1%;
+	margin-left:5px;
+}
+.cardsyt{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/card.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-right:2%;
+}
+.tcsyt{
+    display: inline-block;
+    background-color: #3f75d2;
+    color: beige;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+	margin-bottom:1%;
+	margin-left:5px;
+}
+.jqsty
+{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/icon_nav_msg.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-left:4%;
+margin-right:4%;
+}
+.qfsty
+{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/icon_nav_noti.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-left:4%;
+margin-right:4%;
+}
+.qfstyle1
+{
+    display: inline-block;
+    background-color: red;
+    color: beige;
+    border-radius: 100%;
+    padding-left: 1px;
+    padding-right: 1px;
+	margin-bottom:1%;
+	margin-left:5px;
+}
+.telsty{
+max-width:20px;
+display:inline-block;width:60px; 
+background-image: url('../images/tel.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-right:4%;
+}
+.wxstyle{
+max-width:20px;
+display:inline-block;width:20px; 
+background-image: url('../images/weixin5.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-right:4%;
+}
+.qqstyle{
+max-width:20px;
+display:inline-block;width:20px; 
+background-image: url('../images/q8.png');
+height:20px;
+background-size: 100% 100%;
+margin-top:2%;
+margin-right:4%;
+}
+.shadow{
+display:none;
+}
+.show{
+display:block;
+}

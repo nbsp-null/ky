@@ -1,0 +1,1 @@
+{"st":[{"name":"新生","gender":"female","go_time":"2014-02-02","end_time":"2015-02-02","birth":"1996-03-03","school":"北华大学","tel":"110","weixin":"","qq":"1231232132","card":"4305346667778899","report":"语文补习","count":"880","diff":"100","remark":"test","fech_statu":"jqsty","ids":"1"}]}
