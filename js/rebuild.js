@@ -458,7 +458,7 @@ var init=!(function(a){
 	$("#showTooltips_co").click(function() {
 	  var a =Ctl.getc();if(funct.sele_arr([a.name,a.count,a.time,a.cost],"")){alert("请至少输入名字、费用、时间和课数")}else{var st_type=1;if(a.ids!="new"){window.cik_this.parentElement.removeChild(window.cik_this);c2.innerText=Number(c2.innerText)-1;st_type=2};Ctl.load('s_c.txt',a,1,st_type);$(this).parent().css('display','none');}});
 		  
-	Ctl.load('s_c.txt',{},1,1);
+	Ctl.load('search.txt',{},1,1);
 		
 	tabbar(1);
 	 FastClick.attach(document.body);
