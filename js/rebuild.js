@@ -488,7 +488,10 @@ var a=Math.round((event.changedTouches[0].clientY-Y)/10);
 sele_i.addEventListener('keyup',function(){if(this.value.length>=2){eve.sele_p('2.txt',{'kp':this.value});console.log(this.value)}});
 selc_en.addEventListener('click',function(){if(funct.exist(sele_i.getAttribute('data-cost'))){add.getElementsByTagName('input')[9].value=sele_i.value;add_c.innerText=sele_i.getAttribute('data-cost');add_c.setAttribute('zja',sele_i.getAttribute('data-cost'));this.parentElement.parentElement.style.display="none";}else{this.parentElement.parentElement.style.display="none";}});
 sele_in.addEventListener('click',function(){sele.style.display="inline-block"})
-
+window.onload=function (){
+	body.removeChild(doc.getElementById('load'))
+	
+}
 })()
 
 
